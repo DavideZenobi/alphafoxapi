@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "alphafox.google.credentials",
+      "type": "java.lang.String",
+      "description": "Description for alphafox.google.credentials."
+    }
+  ]
+}
