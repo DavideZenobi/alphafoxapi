@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS --port $PORT -jar target/alphafox-api-0.0.1-SNAPSHOT.jar
+web: java $JAVA_OPTS -jar target/alphafox-api-0.0.1-SNAPSHOT.jar --server.port=$PORT
