@@ -17,7 +17,13 @@ import com.example.alphafoxapi.services.ConverterService;
 import com.example.alphafoxapi.services.PlaceService;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "http://wowguessrweb.herokuapp.com",
+        "https://wowguessrweb.herokuapp.com",
+        "http://www.wowguessr.com",
+        "https://www.wowguessr.com"
+})
 @RequestMapping(path = "/api/place")
 public class PlaceController {
     
@@ -33,7 +39,7 @@ public class PlaceController {
     @GetMapping(path = "/")
     public List<PlaceOutputDTO> getAll() {
         List<Place> places = placeService.findAllSorted();
-        List<PlaceOutputDTO> placesDTO = new ArrayList<PlaceOutputDTO>();
+        List<PlaceOutputDTO> placesDTO = new ArrayList<>();
 
         for (Place place : places) {
             placesDTO.add(converterService.fromPlaceToPlaceOutputDTO(place));
@@ -45,7 +51,7 @@ public class PlaceController {
     @GetMapping(path = "/lang/{languageCode}")
     public List<PlaceLanguageOutputDTO> getAllByLanguageCode(@PathVariable String languageCode) {
         List<PlaceLanguage> places = placeService.findByLanguageCode(languageCode);
-        List<PlaceLanguageOutputDTO> placesDTO = new ArrayList<PlaceLanguageOutputDTO>();
+        List<PlaceLanguageOutputDTO> placesDTO = new ArrayList<>();
 
         for (PlaceLanguage place : places) {
             placesDTO.add(converterService.fromPlaceLanguageToPlaceLanguageOutputDTO(place));

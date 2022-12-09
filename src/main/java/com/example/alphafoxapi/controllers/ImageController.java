@@ -15,7 +15,13 @@ import com.example.alphafoxapi.services.AdvancedService;
 import com.example.alphafoxapi.services.ConverterService;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "http://wowguessrweb.herokuapp.com",
+        "https://wowguessrweb.herokuapp.com",
+        "http://www.wowguessr.com",
+        "https://www.wowguessr.com"
+})
 @RequestMapping(path = "/api/image")
 public class ImageController {
     
